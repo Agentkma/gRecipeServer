@@ -1,5 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const env = 'development';
+const knex = 'knex';
+const config = require('../knexfile.js')[env];
+// const sql = knex('gRecipes').toString();
+// console.log(sql);
+
+// knex.destroy();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
