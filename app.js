@@ -8,6 +8,17 @@ var cors = require('cors');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var ingredient = require('./routes/ingredient');
+var quantity = require('./routes/quantity');
+var user = require('./routes/user');
+var recipe = require('./routes/recipe');
+var step = require('./routes/step');
+var review = require('./routes/review');
+var ingredient_quantity_recipe = require('./routes/ingredient_quantity_recipe');
+
+
+
+
 
 var app = express();
 
@@ -28,6 +39,20 @@ app.use(cors());
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/quantity', quantity);
+app.use('/ingredient', ingredient);
+app.use('/user', user);
+app.use('/recipe', recipe);
+app.use('/step', step);
+app.use('/review', review);
+app.use('/ingredient_quantity_recipe', ingredient_quantity_recipe);
+
+
+
+
+
+
+
 
 app.use('/api/v1/data', data)
 
