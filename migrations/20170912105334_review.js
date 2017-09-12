@@ -5,11 +5,9 @@ exports.up = function(knex, Promise) {
         table.integer('rating');
         table.text('text');
         table.integer("user_id")
-      .references("user.id");
+      .references("user.id").onDelete("CASCADE");
         table.integer("recipe_id")
       .references("recipe.id").onDelete("CASCADE");
-
-
     });
 };
 
