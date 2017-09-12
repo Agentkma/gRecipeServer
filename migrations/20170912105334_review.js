@@ -7,8 +7,7 @@ exports.up = function(knex, Promise) {
         table.integer("user_id")
       .references("user.id");
         table.integer("recipe_id")
-      .references("recipe.id");
-    //   .onDelete("CASCADE");
+      .references("recipe.id").onDelete("CASCADE");
 
 
     });

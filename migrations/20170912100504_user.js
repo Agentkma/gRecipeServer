@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('user', (table)=>{
-        table.increments();
+        table.increments().primary();
         table.text('name');
         table.text('email');
 
