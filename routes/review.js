@@ -13,10 +13,10 @@ router.get('/', function(request, response, next) {
 
 // POST new review
 
-router.get('/createReview', function(request, response, next) {
-        console.log('test');
-        let hello = 'hello world';
-        response.json(hello);
+router.post('/createReview', function(request, response, next) {
+        // console.log('test');
+        // let hello = 'hello world';
+        response.json(request);
 
         // need to loop through request arrays to test for table type match and  then knex to appropriate table
 
