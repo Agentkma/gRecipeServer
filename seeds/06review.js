@@ -7,11 +7,10 @@ exports.seed = function(knex, Promise) {
       return knex('review').insert([
         {id: 1,
         rating: 4,
-        text: "I love this",
-        user_id: 1,
+        text: "I love this pepperoni pizza recipe!  It's super simple and easy to follow",
+        user_name: "Kevin Anderson",
         recipe_id: 1,
     },
-
       ]);
     });
 };

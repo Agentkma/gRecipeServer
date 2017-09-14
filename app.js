@@ -16,13 +16,9 @@ var step = require('./routes/step');
 var review = require('./routes/review');
 var ingredient_quantity_recipe = require('./routes/ingredient_quantity_recipe');
 
-
-
-
-
 var app = express();
 
-var data = require('./api/data');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -54,7 +50,7 @@ app.use('/ingredient_quantity_recipe', ingredient_quantity_recipe);
 
 
 
-app.use('/api/v1/data', data)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -4,8 +4,8 @@ exports.up = function(knex, Promise) {
         table.increments();
         table.integer('rating');
         table.text('text');
-        table.integer("user_id")
-      .references("user.id").onDelete("CASCADE");
+        table.text("user_name")
+      .references("user.name").onDelete("CASCADE");
         table.integer("recipe_id")
       .references("recipe.id").onDelete("CASCADE");
     });

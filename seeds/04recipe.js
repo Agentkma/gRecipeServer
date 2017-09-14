@@ -6,8 +6,8 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('recipe').insert([
         {id: 1,
-        name: 'Pizza',
-        user_id : 1,
+        name: 'Kev Pepperoni Pizza',
+        user_name : "Kevin Anderson",
     },
 
 ]);

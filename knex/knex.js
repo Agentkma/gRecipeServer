@@ -4,10 +4,6 @@ var knex = require('knex')(config);
 
 
 
-knex.schema.createTable('quantity', function (table) {
-  table.increments();
-  table.string('unit');
-  table.integer();
-})
+
 
 module.exports = knex;
