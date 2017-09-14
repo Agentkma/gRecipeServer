@@ -13,9 +13,10 @@ router.get('/', function(request, response, next) {
 
 // POST new review
 
-router.post('/createReview', function(request, response, next) {
+router.get('/createReview', function(request, response, next) {
         console.log('test');
-        response.json(request.json());
+        let hello = 'hello world';
+        response.json(hello);
 
         // need to loop through request arrays to test for table type match and  then knex to appropriate table
 
@@ -28,30 +29,9 @@ router.post('/createReview', function(request, response, next) {
         //      })
 
 });
- // knex('review').insert(
- //     {
- //          rating: request.body.,
- //          text: "I love this pepperoni pizza recipe!  It's super simple and easy to follow",
- //          user_id: 1,
- //          recipe_id: 1,
- //      }
- // );
 
-    // .then(review =>{
-    //
-    //     return knex('review').insert([
-    //       {
-    //       rating: 4,
-    //       text: "I love this pepperoni pizza recipe!  It's super simple and easy to follow",
-    //       user_id: 1,
-    //       recipe_id: 1,
-    //   },
-    //     ]);
-    //
-    //
-    //     response.json(review);
-    //
-    // });
+
+
 
 
 
