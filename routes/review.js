@@ -18,15 +18,18 @@ router.post('/createReview', function(request, response, next) {
         // let hello = 'hello world';
         let data = request.body;
         console.log(data);
-        response.json(request);
 
-        //
-        // knex('review').insert({
-        //          rating: request.body.,
-        //          text: "I love this pepperoni pizza recipe!  It's super simple and easy to follow",
-        //          user_id: 1,
-        //          recipe_id: 1,
-        //      })
+
+
+        return knex('review').insert({
+                 rating: data.rating,
+                 text: data.text,
+                 user_name: data.user_name,
+                 recipe_id: data.recipe_id,
+             }).then(()=>{
+                 response.redirect('https://grecipes-2be24.firebaseapp.com/');
+             });
+
 
 });
 
