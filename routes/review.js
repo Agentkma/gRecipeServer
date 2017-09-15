@@ -19,18 +19,19 @@ router.post('/createReview', function(request, response, next) {
         let data = request.body;
         console.log(data);
 
-        knex('person').insert({
+        return knex('person').insert({
             name: data.user_name
+        })
+        .then(()=>{
+            knex('review').insert({
+                     rating: data.rating,
+                     text: data.text,
+                     person_name: data.user_name,
+                     recipe_id: data.recipe_id,
+                 });
+        }).then( ()=>{
+            response.redirect('https://grecipes-2be24.firebaseapp.com/');
         });
-
-        return knex('review').insert({
-                 rating: data.rating,
-                 text: data.text,
-                 person_name: data.user_name,
-                 recipe_id: data.recipe_id,
-             }).then(()=>{
-                 response.redirect('https://grecipes-2be24.firebaseapp.com/');
-             });
 
 
 });
