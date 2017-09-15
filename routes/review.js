@@ -14,8 +14,7 @@ router.get('/', function(request, response, next) {
 // POST new review
 
 router.post('/createReview', function(request, response, next) {
-        // console.log('test');
-        // let hello = 'hello world';
+
         let data = request.body;
         console.log(data);
 
@@ -29,7 +28,9 @@ router.post('/createReview', function(request, response, next) {
                      person_name: data.user_name,
                      recipe_id: data.recipe_id,
                  });
-        }).then( ()=>{
+                 console.log('test review insert');
+        })
+        .then( ()=>{
             response.redirect('https://grecipes-2be24.firebaseapp.com/');
         });
 
