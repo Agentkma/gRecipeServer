@@ -19,8 +19,6 @@ router.post('/createReview', function(request, response, next) {
         let data = request.body;
         console.log(data);
 
-
-
         return knex('review').insert({
                  rating: data.rating,
                  text: data.text,
