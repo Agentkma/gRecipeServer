@@ -12,7 +12,6 @@ router.get('/', function(request, response, next) {
 });
 
 // POST new review
-
 router.post('/createReview', function(request, response, next) {
 
         let data = request.body;
@@ -27,13 +26,10 @@ router.post('/createReview', function(request, response, next) {
                      person_name: data.user_name,
                      recipe_id: data.recipe_id,
                  });
-
         })
         .then( ()=>{
             response.json('Review Submited');
         });
-
-
 });
 
 
