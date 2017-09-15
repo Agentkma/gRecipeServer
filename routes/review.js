@@ -22,7 +22,7 @@ router.post('/createReview', function(request, response, next) {
             name: data.user_name
         })
         .then(()=>{
-            knex('review').insert({
+            return knex('review').insert({
                      rating: data.rating,
                      text: data.text,
                      person_name: data.user_name,
