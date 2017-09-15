@@ -4,8 +4,8 @@ var knex = require('../knex/knex');
 
 /* GET user listing. */
 router.get('/', function(request, response, next) {
-     knex('user').then(user =>{
-        response.json(user);
+     knex('person').then(person =>{
+        response.json(person);
 
     });
 });

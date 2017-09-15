@@ -26,7 +26,7 @@ router.post('/createReview', function(request, response, next) {
         return knex('review').insert({
                  rating: data.rating,
                  text: data.text,
-                 user_name: data.user_name,
+                 person_name: data.user_name,
                  recipe_id: data.recipe_id,
              }).then(()=>{
                  response.redirect('https://grecipes-2be24.firebaseapp.com/');
