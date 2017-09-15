@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
       return knex('recipe').insert([
         {id: 1,
         name: 'Kev Pepperoni Pizza',
-        user_name : "Kevin Anderson",
+        person_name : "Kevin Anderson",
     },
 
 ]);
