@@ -19,7 +19,7 @@ router.post('/createReview', function(request, response, next) {
         let data = request.body;
         console.log(data);
 
-        knex('user').insert({
+        knex('person').insert({
             name: data.user_name
         });
 
