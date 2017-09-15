@@ -6,15 +6,6 @@ exports.up = function(knex, Promise) {
         table.text('person_name')
       .references("person.name")
       .onDelete("CASCADE");
-      table.text('description');
-      table.text('image');
-      table.integer('ingredient_id')
-      .references('ingredient.id')
-      .onDelete('CASCADE');
-      table.integer('step_id')
-      .references('step.id')
-      .onDelete('CASCADE');
-
     });
 };
 
