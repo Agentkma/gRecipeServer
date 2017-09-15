@@ -16,9 +16,9 @@ router.get('/', function(request, response, next) {
 router.post('/createReview', function(request, response, next) {
         // console.log('test');
         // let hello = 'hello world';
+        let data = request.body;
+        console.log(data);
         response.json(request);
-
-        // need to loop through request arrays to test for table type match and  then knex to appropriate table
 
         //
         // knex('review').insert({
