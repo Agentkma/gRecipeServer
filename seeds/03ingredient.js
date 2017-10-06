@@ -1,12 +1,12 @@
 'use strict';
-const review = require('../seed_data/review');
+const ingredient = require('../seed_data/ingredient');
 
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('review').del()
+  return knex('ingredient').del()
     .then(function () {
       // Inserts seed entries
-      return knex('review').insert(review);
+      return knex('ingredient').insert(ingredient);
     });
 };

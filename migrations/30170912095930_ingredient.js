@@ -2,8 +2,11 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('ingredient', (table)=>{
       table.increments();
-      table.text('name');
-      table.text('description');
+      table.text('ingredientName');
+      table.text('unit');
+      table.integer('amount');
+      table.integer("recipe_id")
+      .references("recipe.id").onDelete("CASCADE");
 
   });
 };

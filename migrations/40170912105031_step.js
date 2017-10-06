@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
     return knex.schema.createTable('step', (table)=>{
         table.increments();
         table.integer('order');
-        table.text('description');
+        table.text('stepDescription');
         table.integer("recipe_id")
       .references("recipe.id").onDelete("CASCADE");
 

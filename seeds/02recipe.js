@@ -1,13 +1,12 @@
+'use strict';
+const recipe = require('../seed_data/recipe');
+
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('person').del()
+  return knex('recipe').del()
     .then(function () {
       // Inserts seed entries
-      return knex('person').insert([
-        {name: 'Kevin Anderson',
-        }
-
-      ]);
+      return knex('recipe').insert(recipe);
     });
 };
