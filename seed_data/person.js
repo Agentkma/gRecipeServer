@@ -1,6 +1,6 @@
 module.exports = [
-
-    {personName: 'Kevin Anderson',
-            }
-
+	{
+		id: 1,
+		personName: "Kevin Anderson"
+	}
 ];

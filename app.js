@@ -7,14 +7,10 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
 const app = express();
-
 const quantity = require('./api/quantity');
 const recipe = require('./api/recipe');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -25,10 +21,6 @@ app.use(cookieParser());
 
 app.use('/api/v1/quantity', quantity);
 app.use('/api/v1/recipe', recipe);
-
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
