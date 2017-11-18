@@ -7,7 +7,7 @@ module.exports = {
   development: {
   ///postrges database
     client:'pg',
-    connection: 'postgres://localhost/gRecipes',
+    connection: 'postgres://localhost/grecipes',
   },
 
   production: {

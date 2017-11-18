@@ -4,8 +4,7 @@ exports.up = function(knex, Promise) {
 		table.text("title");
 		table.text("recipeDescription");
 		table.text("file");
-		table
-			.integer("person_id")
+		table.integer("person_id")
 			.references("person.id")
 			.onDelete("CASCADE");
 	});

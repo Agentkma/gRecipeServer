@@ -1,6 +1,10 @@
 "use strict";
 const knex = require("./knex"); //the connection
 
+
+
+
+
 module.exports = {
 	getAllRecipes() {
 		function reformattedRecipe(recipes) {
@@ -112,54 +116,61 @@ module.exports = {
 	},
 
 	createRecipe(recipe) {
+		return Promise.resolve(recipe)
+			.then(addPerson)
+			.then(addRecipe)
+			.then(addSteps)
+
 		/////// HELPER FUNCTIONS //////////////////////
-		const addRecipe = data => {
+		function addPerson(data) {
+			return knex("person")
+				.returning("id")
+				.insert({
+					personName: data.personName
+				})
+				.then(id=>{
+					return id[0];
+				})
+		};
+		function addRecipe(id) {
+			
 			return knex("recipe")
 				.returning("id")
 				.insert({
-					title: data.title,
-					recipeDescription: data.recipeDescription,
-					file: data.file,
-					person_id: data.person_id
-				})
-				.then(function(id) {
-					// console.log(id[0]);
-					//TODO error invalid syntax for integer
-
-					let steps = data.step;
-					// console.log(data);
-
-					let stepsPromises = steps.map(step => {
-						return knex("step").insert({
-							order: step.order,
-							stepDescription: step.stepDescription,
-							recipe_id: id[0]
-						});
-					});
-					return Promise.all(stepsPromises);
+					title: recipe.title,
+					recipeDescription: recipe.recipeDescription,
+					file: recipe.file,
+					person_id: id
 				});
-		};
+		}
+		function addSteps(id) {
+			let steps = recipe.step;
 
-		const addPerson = data => {
-			return knex("person").insert({
-				//TODO DOES this need to be person_personName? to match column name?...if so change reformatting func to match
-				personName: data.personName
+			let stepsPromises = steps.map(step => {
+				return knex("step").insert({
+					order: step.order,
+					stepDescription: step.stepDescription,
+					recipe_id: id[0]
+				});
 			});
-		};
 
-		const addIngredient = data => {
-			let ingredients = data.ingredient;
+			let ingredients = recipe.ingredient;
+
 			let ingredientsPromises = ingredients.map(ingredient => {
 				return knex("ingredient").insert({
 					ingredientName: ingredient.ingredientName,
-					unit: data.unit,
-					amount: data.amount
+					unit: ingredient.unit,
+					amount: ingredient.amount,
+					recipe_id: id[0]
 				});
 			});
-			return Promise.all(ingredientsPromises);
-		};
-		addRecipe(recipe);
-		addPerson(recipe);
-		addIngredient(recipe);
+			return Promise.all(
+				stepsPromises,
+				ingredientsPromises
+			).catch(err => {
+				console.log("promise all", err);
+			});
+		}
+
 	}
 };
